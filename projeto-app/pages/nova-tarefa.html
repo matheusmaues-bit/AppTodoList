@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VM Task Core - Criar Tarefa</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- ================= SIDEBAR (DESKTOP) ================= -->
+    <aside class="sidebar">
+      <div>
+        <div class="brand">
+          <div class="logo-box">✓</div>
+          <div class="brand-text">
+            <h1>VM Task Core</h1>
+            <span>COMMAND & CONTROL</span>
+          </div>
+        </div>
+
+        <nav class="nav-links">
+          <span style="font-family: var(--font-mono); font-size: 8px; font-weight: bold; color: var(--color-text-secondary); text-transform: uppercase; margin-bottom: 8px; display: block; letter-spacing: 0.1em; opacity: 0.7;">
+            Navegação
+          </span>
+          <a href="./lista-de-tarefas.html" class="nav-item">
+            <span>Minhas Tarefas</span>
+            <span class="badge" style="display: none;">0</span>
+          </a>
+          <a href="#" class="nav-item active">
+            <span>Criar Tarefa</span>
+          </a>
+        </nav>
+      </div>
+
+      <div style="background: rgba(87, 63, 108, 0.15); border: 1px solid var(--color-surface); padding: 12px; border-radius: var(--rounded-lg); display: flex; align-items: center; gap: 8px;">
+        <div style="width: 24px; height: 24px; border-radius: 50%; background: var(--color-surface); font-size: 9px; font-weight: bold; display: flex; align-items: center; justify-content: center; color: var(--color-primary);">VM</div>
+        <div style="overflow: hidden;">
+          <p style="font-size: 11px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Mauro Acmaúes</p>
+          <span style="font-family: var(--font-mono); font-size: 8px; color: var(--color-text-secondary);">prod-core</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ================= HEADER (MOBILE) ================= -->
+    <header class="mobile-header">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <a href="./lista-de-tarefas.html" style="text-decoration: none; color: var(--color-text-secondary); font-size: 18px; margin-right: 4px;">←</a>
+        <div class="logo-box" style="width: 28px; height: 28px; font-size: 13px;">✓</div>
+        <div class="brand-text">
+          <h1 style="font-size: 13px;">VM Task Core</h1>
+          <span style="font-size: 7px; opacity: 0.8;">MOBILE WORKSPACE</span>
+        </div>
+      </div>
+      <span class="badge" style="display: none;">0</span>
+    </header>
+
+    <!-- ================= CONTEÚDO PRINCIPAL ================= -->
+    <main class="main-content" style="max-width: 600px; margin: 0 auto; width: 100%;">
+      <div style="margin-bottom: 24px;">
+        <h2 style="font-family: var(--font-display); font-size: 24px; font-weight: 700; color: var(--color-text);">
+          Nova Tarefa
+        </h2>
+        <p style="font-size: 13px; color: var(--color-text-secondary); margin-top: 4px;">
+          Cadastre uma atividade estratégica e defina suas prioridades.
+        </p>
+      </div>
+
+      <!-- Formulário de Nova Tarefa -->
+      <form id="new-task-form" style="background-color: rgba(69, 46, 90, 0.1); border: 1px solid var(--color-surface); border-radius: var(--rounded-xl); padding: 20px; display: flex; flex-direction: column;">
+        
+        <!-- Título -->
+        <div class="form-group">
+          <label for="title-input" class="form-label">Título da Tarefa <span style="color: var(--color-primary);">*</span></label>
+          <input type="text" id="title-input" class="form-control" placeholder="Ex: Ajustar componentes no Figma..." required>
+        </div>
+
+        <!-- Descrição -->
+        <div class="form-group">
+          <label for="desc-input" class="form-label">Descrição / Objetivos</label>
+          <textarea id="desc-input" class="form-control" placeholder="Insira o escopo ou detalhes adicionais..." rows="3" style="resize: none;"></textarea>
+        </div>
+
+        <!-- Prioridade e Categoria lado a lado -->
+        <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 20px;">
+          <div class="form-group" style="flex: 1; min-width: 150px; margin-bottom: 0;">
+            <label for="priority-select" class="form-label">Prioridade</label>
+            <select id="priority-select" class="form-control" style="cursor: pointer;">
+              <option value="low">Baixa</option>
+              <option value="medium" selected>Média</option>
+              <option value="high">Alta</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="flex: 1; min-width: 150px; margin-bottom: 0;">
+            <label for="category-select" class="form-label">Categoria</label>
+            <select id="category-select" class="form-control" style="cursor: pointer;">
+              <!-- Preenchido dinamicamente via script.js -->
+            </select>
+          </div>
+        </div>
+
+        <!-- Data Limite (Prazo) -->
+        <div class="form-group">
+          <label for="date-input" class="form-label">Prazo de Entrega</label>
+          <input type="date" id="date-input" class="form-control" style="cursor: pointer;">
+        </div>
+
+        <!-- Ações do Formulário -->
+        <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(87, 63, 108, 0.3);">
+          <a href="./lista-de-tarefas.html" class="btn btn-secondary">Cancelar</a>
+          <button type="submit" class="btn btn-primary">Salvar Tarefa</button>
+        </div>
+
+      </form>
+    </main>
+
+    <!-- ================= BOTTOM NAVIGATION (MOBILE) ================= -->
+    <nav class="mobile-nav">
+      <a href="./lista-de-tarefas.html" class="mobile-nav-item">
+        <span>📋</span>
+        <span>Tarefas</span>
+      </a>
+      <a href="#" class="mobile-nav-item active">
+        <span>➕</span>
+        <span>Adicionar</span>
+      </a>
+    </nav>
+
+  </div>
+
+  <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "name": "VM Task Core",
+  "description": "Gerenciador de tarefas corporativo e de alta performance com design minimalista, suporte a categorias, subtarefas e estatísticas de progresso.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
